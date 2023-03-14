@@ -17,15 +17,19 @@ export default function RootLayout({
                 <h1> Search </h1>
             </div>
 
-       
+       <div>
         <div className="flex-1 pl-5">
+
         < Search /> 
+
           </div>
 
 
-          <div  > {children}</div>
+          <div> 
+            {children}
+            </div>
 
-          
+          </div>
 
           </main>
     
