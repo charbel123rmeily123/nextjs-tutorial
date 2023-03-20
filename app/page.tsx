@@ -4,8 +4,15 @@
 import Accordion from "../components/Accordion";
 import { useState } from "react";
 
+
+interface AccordionData {
+  title: string;
+  content: string;
+  subAccordions?: AccordionData[];
+}
 function Home(): JSX.Element {
-  const accordionData: AccordionData[] = [
+
+  const accordionData: AccordionData [] = [
     {
       title: "Accordion Title 1",
       content: "Accordion Content 1",
