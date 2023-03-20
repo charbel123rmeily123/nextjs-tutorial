@@ -19,7 +19,7 @@ export default function RootLayout({
 
 
       </head>
-      <body>
+      <body className="homepage-bg">
         < Header />
         {children}
         </body>
