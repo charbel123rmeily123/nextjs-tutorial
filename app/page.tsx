@@ -4,6 +4,7 @@ import Accordion from "../components/Accordion";
 import { useState } from "react";
 import Link from "next/link";
 
+
 interface AccordionData {
   title: string;
   content: string;
@@ -57,7 +58,7 @@ function Home(): JSX.Element {
   return (
 
 
-    
+
     <div className="accordion-container">
   <div className="accordion-buttons">
     {accordionData.map((data, index) => (
