@@ -1,5 +1,9 @@
+
+'use client';
+import { Accordion } from '@material-tailwind/react';
 import '../styles/globals.css';
 import Header from './Header';
+
 
 export const metadata = {
   title: 'Next.js',
@@ -21,6 +25,8 @@ export default function RootLayout({
       </head>
       <body className="homepage-bg">
         < Header />
+        { /* @ts-ignore */ }
+        < Accordion/> 
         {children}
         </body>
     </html>

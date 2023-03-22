@@ -1,11 +1,7 @@
+
 import { useState } from "react";
 import './style.css';
 import {AiOutlineMinus , AiOutlinePlus} from "react-icons/ai";
-
-
-
-
-
 
 interface AccordionData {
   title: string;
@@ -14,12 +10,13 @@ interface AccordionData {
 }
 
 interface AccordionProps {
+  id: string;
   data: AccordionData;
   isOpen: boolean;
   onClick: () => void;
 }
 
-const Accordion = ({ data, isOpen, onClick }: AccordionProps) => {
+const Accordion = ({ id, data, isOpen, onClick }: AccordionProps) => {
   const toggleAccordion = () => {
     if (isOpen) {
       // if current accordion is open, close it and any open sub-accordions
@@ -37,12 +34,9 @@ const Accordion = ({ data, isOpen, onClick }: AccordionProps) => {
     }
   };
 
-
   const [openAccordionsubIndex, setOpenAccordionsubIndex] = useState<number | null>(
     null
   );
-
-
 
   const handleAccordionClick = (subIndex: number) => {
     if (openAccordionsubIndex === subIndex) {
@@ -53,14 +47,16 @@ const Accordion = ({ data, isOpen, onClick }: AccordionProps) => {
   };
 
   
+
   return (
-    <div className="accordion">
+    <div className="accordion" id={id}> 
       <div className="accordion-header" onClick={toggleAccordion}>
         <h2>{data.title}</h2>
         <span className={`icon ${isOpen ? "rotate" : ""}`}>
           {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </span>
       </div>
+    
 
       {isOpen && (
         <div className="accordion-content">
@@ -70,15 +66,17 @@ const Accordion = ({ data, isOpen, onClick }: AccordionProps) => {
               {data.subAccordions.map((subData, subIndex) => (
                 <Accordion
                   key={subIndex}
+                  id={`${id}-sub${subIndex}`}
                   data={subData}
                   isOpen={openAccordionsubIndex === subIndex}
-                  onClick={() => handleAccordionClick(subIndex)} // toggle parent accordion on sub-accordion click
+                  onClick={() => handleAccordionClick(subIndex)}
                 />
               ))}
             </div>
           )}
         </div>
       )}
+     
     </div>
   );
 };
