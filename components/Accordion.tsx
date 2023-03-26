@@ -37,13 +37,19 @@ const Accordion = ({ id, data, isOpen, onClick }: AccordionProps) => {
   const [openAccordionsubIndex, setOpenAccordionsubIndex] = useState<number | null>(
     null
   );
-
+  
   const handleAccordionClick = (subIndex: number) => {
     if (openAccordionsubIndex === subIndex) {
       setOpenAccordionsubIndex(null);
     } else {
       setOpenAccordionsubIndex(subIndex);
     }
+  
+    // Update the URL
+    const accordionPath = `accordion${id.slice(-1)}`;
+    const subAccordionPath = `${id }/${id}-${subIndex +1}`;
+    const path = openAccordionsubIndex === subIndex ? accordionPath : subAccordionPath;
+    window.history.pushState(null, "", `/${path}`);
   };
 
   

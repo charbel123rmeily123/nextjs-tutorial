@@ -1,9 +1,6 @@
 'use client';
-
-import Accordion from "../components/Accordion";
 import { useState } from "react";
-import Link from "next/link";
-
+import Accordion from "../components/Accordion";
 
 interface AccordionData {
   title: string;
@@ -30,6 +27,16 @@ function Home(): JSX.Element {
     {
       title: "Accordion Title 2",
       content: "Accordion Content 2",
+      subAccordions: [
+        {
+          title: "Nested Accordion Title 2",
+          content: "Nested Accordion Content 2",
+        },
+        {
+          title: "Nested Accordion Title 2",
+          content: "Nested Accordion Content 2",
+        },
+      ],
     },
     {
       title: "Accordion Title 3",
@@ -37,7 +44,9 @@ function Home(): JSX.Element {
     },
   ];
 
-  const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(null);
+  const [openAccordionIndex, setOpenAccordionIndex] = useState<number | null>(
+    null
+  );
 
   const handleAccordionClick = (index: number) => {
     if (openAccordionIndex === index) {
@@ -45,48 +54,27 @@ function Home(): JSX.Element {
     } else {
       setOpenAccordionIndex(index);
     }
-  };
-
-  const handleButtonClick = (index: number) => {
-    handleAccordionClick(index);
-    const element = document.getElementById(`accordion-${index}`);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    
+    // Update the URL
+    window.history.pushState(null, "", `/accordion${index + 1}`);
   };
 
   return (
-
-
-
     <div className="accordion-container">
-  <div className="accordion-buttons">
-    {accordionData.map((data, index) => (
-      <button key={index} onClick={() => handleButtonClick(index)}>
-        {data.title}
-      </button>
-    ))}
-  </div>
-
-  {accordionData.map((data, index) => (
-    <div key={index} className="accordion">
-      <Accordion
-        id={`accordion-${index}`}
-        data={data}
-        isOpen={openAccordionIndex === index}
-        onClick={() => handleAccordionClick(index)}
-      />
+      {accordionData.map((data, index) => (
+        <div key={index} className="accordion">
+          <Accordion
+            id={`accordion${index + 1}`}
+            data={data}
+            isOpen={openAccordionIndex === index}
+            onClick={() => handleAccordionClick(index)}
+          />
+        </div>
+      ))}
     </div>
-  ))}
-</div>
   );
 }
 
 export default Home;
-
-
-
-
-
 
 
