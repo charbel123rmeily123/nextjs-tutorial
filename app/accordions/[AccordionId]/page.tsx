@@ -1,8 +1,5 @@
-
-'use client';
 import { AccordionList } from "../accordionData";
 import { notFound} from "next/navigation";
-import { useRouter } from "next/router";
 
 export const dynamicParams = true;
 
@@ -34,15 +31,13 @@ if (!accordion) {
 
 async function AccordionPage(props: PageProps) {
   
-  const { query } = useRouter();
-  console.log({query});
 
   const { AccordionId } = props;
-
   console.log("AccordionId:",AccordionId);
  const accordion = await fetchAccordion(AccordionId);
 
-if (!accordion) {
+
+  if (!accordion) {
     return notFound();
   }
   console.log("accordion:", accordion);
