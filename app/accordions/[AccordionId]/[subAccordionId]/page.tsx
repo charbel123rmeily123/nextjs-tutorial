@@ -1,5 +1,6 @@
 import { AccordionList } from "../../accordionData";
 import { notFound } from "next/navigation";
+import { useState } from "react";
 
 export const dynamicParams = true;
 
@@ -44,8 +45,7 @@ async function SubAccordionPage(props: PageProps) {
 
   return (
     <div>
-      <h1>{subAccordion.title}</h1>
-      <p>{subAccordion.content}</p>
+     
     </div>
   );
 }

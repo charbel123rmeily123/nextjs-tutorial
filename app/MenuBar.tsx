@@ -33,6 +33,11 @@ function MenuBar(){
               Todos
             </Link>
           </li>
+          <li>
+            <Link href="/accordions" onClick={handleItemClick} className="px-2 py-1 bg-white text-blue-500 rounded-lg">
+              Accordions
+            </Link>
+          </li>
         </ul>
       ) : (
         <button  className="px-2 py-1 bg-white text-blue-500 rounded-lg" onClick={toggleMenu}>Menu</button>

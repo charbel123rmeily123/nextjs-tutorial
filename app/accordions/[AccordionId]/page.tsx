@@ -1,5 +1,6 @@
 import { AccordionList } from"../accordionData";
 import { notFound } from "next/navigation";
+import  "../../style.css";
 
 export const dynamicParams = true;
 
@@ -17,6 +18,7 @@ const fetchAccordion = async (AccordionId: string) => {
   return accordion;
 };
 
+
 async function AccordionPage(props: PageProps) {
   console.log("props:", props);
   const { AccordionId } = props.params;
@@ -27,9 +29,11 @@ async function AccordionPage(props: PageProps) {
   }
 
   return (
-    <div>
-      <h1>{accordion.title}</h1>
-      <p>{accordion.content}</p>
+    <div>  
+
+
+      
+   
     </div>
   );
 }

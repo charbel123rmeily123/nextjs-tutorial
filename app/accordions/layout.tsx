@@ -10,7 +10,7 @@ export default function RootLayout({
   }) {
     return (
       
-        <main className="flex">
+        <main >
 
        
             <div>
@@ -21,7 +21,7 @@ export default function RootLayout({
           </div>
 
 
-          <div className="flex-1" >
+          <div  >
             {children}
 
           </div>
