@@ -6,3 +6,22 @@
 .ReactCollapse--collapse {
     transition: height 500ms;
   }
+  .button-customer {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin-left: 100px;
+    height: 50px;
+  
+  }
+  
+  .rounded-tr-lg {
+    border-top-right-radius: 10.5rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 4px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Add any other styles you need */
+}
+.absolute button {
+  position: relative;
+  bottom: -1rem;
+  z-index: 1;
+}
